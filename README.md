@@ -27,8 +27,8 @@ Account type- Nonprofit Manager, Volunteer/Contributor, Assistee???
 
 ```
 [x] Event/inventory setup and management
-[ ] Event and inventory dashboard
-[ ] Demographic data collection form for first-timers
+[x] Event and inventory dashboard
+[x] Demographic data collection form for first-timers
 [ ] Optional feedback form for clients
 [ ] “Impact” page: total events, people checked-in, amount of food distributed, food waste prevented
 ```
