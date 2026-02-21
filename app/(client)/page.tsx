@@ -155,6 +155,124 @@ export default function ClientLandingPage() {
         </Link>
       </section>
 
+      {/* Hours, contact & donate — Tommie Shelf info */}
+      <section
+        style={{
+          maxWidth: "56rem",
+          margin: "0 auto",
+          padding: "3rem 1.5rem",
+          borderBottom: "1px solid #e2e8f0",
+        }}
+      >
+        <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "0.25rem" }}>
+          Hours, contact & support
+        </h2>
+        <p style={{ color: "#64748b", marginBottom: "1.5rem", fontSize: "0.95rem" }}>
+          Campus hours, how to reach us, and how to give.
+        </p>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(16rem, 1fr))",
+            gap: "1.25rem",
+          }}
+        >
+          <div
+            style={{
+              background: "#fff",
+              border: "1px solid #e2e8f0",
+              borderRadius: "12px",
+              padding: "1.25rem",
+              boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+            }}
+          >
+            <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.75rem", color: "#7c3aed" }}>
+              Hours of operation
+            </h3>
+            <p style={{ fontSize: "0.875rem", fontWeight: 700, color: "#334155", marginBottom: "0.25rem" }}>
+              St. Paul Campus
+            </p>
+            <p style={{ fontSize: "0.875rem", color: "#475569", lineHeight: 1.5, marginBottom: "0.75rem" }}>
+              First Tuesday of every month, 10:00 a.m.–12:00 p.m., at the Iversen Center for Faith turnaround.
+            </p>
+            <p style={{ fontSize: "0.875rem", fontWeight: 700, color: "#334155", marginBottom: "0.25rem" }}>
+              Minneapolis Campus
+            </p>
+            <p style={{ fontSize: "0.875rem", color: "#475569", lineHeight: 1.5 }}>
+              Third Wednesday of every month, 3:00–5:00 p.m., Terrence Murphy Hall, Room 252 (September–May).
+            </p>
+          </div>
+          <div
+            style={{
+              background: "#fff",
+              border: "1px solid #e2e8f0",
+              borderRadius: "12px",
+              padding: "1.25rem",
+              boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+            }}
+          >
+            <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.75rem", color: "#7c3aed" }}>
+              Contact Tommie Shelf
+            </h3>
+            <p style={{ fontSize: "0.875rem", color: "#475569", lineHeight: 1.5, marginBottom: "0.5rem" }}>
+              Questions about accessing groceries or supporting Tommie Shelf?
+            </p>
+            <a
+              href="mailto:tommieshelf@stthomas.edu"
+              style={{
+                fontSize: "0.9375rem",
+                fontWeight: 600,
+                color: "#7c3aed",
+              }}
+            >
+              tommieshelf@stthomas.edu
+            </a>
+          </div>
+          <div
+            style={{
+              background: "#fff",
+              border: "1px solid #e2e8f0",
+              borderRadius: "12px",
+              padding: "1.25rem",
+              boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+            }}
+          >
+            <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.75rem", color: "#7c3aed" }}>
+              Donate
+            </h3>
+            <p style={{ fontSize: "0.875rem", fontWeight: 700, color: "#334155", marginBottom: "0.25rem" }}>
+              Donate food
+            </p>
+            <p style={{ fontSize: "0.875rem", color: "#475569", lineHeight: 1.5, marginBottom: "0.75rem" }}>
+              Non-perishable groceries may be dropped off during the school year at Anderson Student Center, Room 207.
+            </p>
+            <p style={{ fontSize: "0.875rem", fontWeight: 700, color: "#334155", marginBottom: "0.25rem" }}>
+              Donate money
+            </p>
+            <p style={{ fontSize: "0.875rem", color: "#475569", lineHeight: 1.5, marginBottom: "0.75rem" }}>
+              Your support helps ensure access to quality, healthy food for our community.
+            </p>
+            <a
+              href="https://donorbox.org/tommieshelfdonation"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-block",
+                padding: "0.5rem 1rem",
+                background: "#7c3aed",
+                color: "#fff",
+                borderRadius: "8px",
+                fontSize: "0.875rem",
+                fontWeight: 600,
+                textDecoration: "none",
+              }}
+            >
+              Make a monetary donation
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Upcoming Events */}
       <section
         style={{

@@ -37,7 +37,7 @@ Account type- Nonprofit Manager, Volunteer/Contributor, Assistee???
 
 ```
 [ ] Inventory item recipe client submissions, staff suggestions, (downloadable PDFs) => need database
-[ ] "Food Shelves and Kitchen near me" locator
+[x] "Food Shelves and Kitchen near me" locator
 [ ] Food order and pickup option
 [ ] Include food and product request form to share with donors
 ```
