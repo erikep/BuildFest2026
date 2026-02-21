@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/.pnpm/node_modules
+.pnpm-store
+
+# Next.js
+.next/
+out/
+
+# Build
+dist/
+build/
+
+# Env
+.env
+.env*.local
+
+# IDE
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Misc
+*.log
+.DS_Store
