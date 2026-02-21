@@ -18,6 +18,8 @@ export default function EditEventPage() {
     date: "",
     location: "",
     description: "",
+    foodDistributedAmount: null,
+    foodWastePrevented: null,
   });
 
   useEffect(() => {
@@ -33,6 +35,8 @@ export default function EditEventPage() {
               date: event.date,
               location: event.location,
               description: event.description,
+              foodDistributedAmount: event.foodDistributedAmount ?? null,
+              foodWastePrevented: event.foodWastePrevented ?? null,
             });
           }
         }
@@ -70,7 +74,7 @@ export default function EditEventPage() {
     }
   }
 
-  function update(field: keyof CreateEventInput, value: string) {
+  function update(field: keyof CreateEventInput, value: string | null) {
     setFormData((prev) => ({ ...prev, [field]: value }));
   }
 
@@ -167,6 +171,28 @@ export default function EditEventPage() {
               placeholder="Optional details..."
               rows={3}
               style={{ ...inputStyle, resize: "vertical" }}
+            />
+          </div>
+
+          <div>
+            <label style={labelStyle}>Food distributed amount (impact)</label>
+            <input
+              type="text"
+              value={formData.foodDistributedAmount ?? ""}
+              onChange={(e) => update("foodDistributedAmount", e.target.value.trim() || null)}
+              placeholder="e.g. 50 lbs, 20 bags"
+              style={inputStyle}
+            />
+          </div>
+
+          <div>
+            <label style={labelStyle}>Food waste prevented (impact)</label>
+            <input
+              type="text"
+              value={formData.foodWastePrevented ?? ""}
+              onChange={(e) => update("foodWastePrevented", e.target.value.trim() || null)}
+              placeholder="e.g. 30 lbs"
+              style={inputStyle}
             />
           </div>
 

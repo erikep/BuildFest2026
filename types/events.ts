@@ -8,6 +8,8 @@ export type Event = {
   date: string;
   location: string;
   description: string;
+  foodDistributedAmount?: string | null;
+  foodWastePrevented?: string | null;
 };
 
 export type CreateEventInput = Omit<Event, "id">;

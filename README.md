@@ -30,7 +30,7 @@ Account type- Nonprofit Manager, Volunteer/Contributor, Assistee???
 [x] Event and inventory dashboard
 [x] Demographic data collection form for first-timers
 [x] Optional feedback form for clients
-[ ] “Impact” page: total events, people checked-in, amount of food distributed, food waste prevented
+[x] “Impact” page: total events, people checked-in, amount of food distributed, food waste prevented
 ```
 
 ## Stretch
