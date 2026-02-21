@@ -1,6 +1,7 @@
 # Dependencies
-node_modules
-node_modules/.pnpm/node_modules
+node_modules/
+.pnp
+.pnp.js
 .pnpm-store
 
 # Next.js
@@ -10,10 +11,29 @@ out/
 # Build
 dist/
 build/
+*.tsbuildinfo
 
 # Env
 .env
 .env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Vercel
+.vercel
+
+# Prisma (local DB files)
+prisma/*.db
+prisma/*.db-journal
+
+# Testing
+coverage/
 
 # IDE
 .idea
@@ -23,6 +43,10 @@ build/
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# OS
+.DS_Store
+Thumbs.db
+
 # Misc
 *.log
-.DS_Store
+.cursor
