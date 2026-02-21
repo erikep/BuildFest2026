@@ -26,7 +26,7 @@ Account type- Nonprofit Manager, Volunteer/Contributor, Assistee???
 ## Staff‑side
 
 ```
-[ ] Event/inventory setup and management
+[x] Event/inventory setup and management
 [ ] Event and inventory dashboard
 [ ] Demographic data collection form for first-timers
 [ ] Optional feedback form for clients

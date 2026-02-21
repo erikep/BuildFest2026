@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function StaffLayout({
   children,
 }: {
@@ -13,9 +15,24 @@ export default function StaffLayout({
           borderBottom: "3px solid #3b82f6",
         }}
       >
-        <h1 style={{ fontSize: "1.25rem", fontWeight: 600 }}>Staff · Event management</h1>
+        <div style={{ maxWidth: "56rem", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <Link href="/staff" style={{ fontSize: "1.25rem", fontWeight: 700, color: "#f8fafc" }}>
+            Tommie Shelf Staff
+          </Link>
+          <nav style={{ display: "flex", gap: "1.5rem", fontSize: "0.875rem" }}>
+            <Link href="/staff" style={{ color: "#94a3b8", fontWeight: 500 }}>
+              Home
+            </Link>
+            <Link href="/staff/events" style={{ color: "#94a3b8", fontWeight: 500 }}>
+              Events
+            </Link>
+            <Link href="/staff/inventory" style={{ color: "#94a3b8", fontWeight: 500 }}>
+              Inventory
+            </Link>
+          </nav>
+        </div>
       </header>
-      <main style={{ padding: "1.5rem", maxWidth: "42rem", margin: "0 auto" }}>
+      <main style={{ padding: "1.5rem", maxWidth: "56rem", margin: "0 auto" }}>
         {children}
       </main>
     </div>
