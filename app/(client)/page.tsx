@@ -224,7 +224,7 @@ export default function ClientLandingPage() {
                   {formatDate(event.date)}
                 </span>
                 <h3 style={{ fontSize: "1.125rem", fontWeight: 700 }}>{event.title}</h3>
-                <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "#64748b", fontWeight: 600 }}>
+                <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "#64748b" }}>
                   {event.location}
                 </p>
                 {event.description && (
@@ -318,7 +318,7 @@ export default function ClientLandingPage() {
                 {resource.title}
               </h3>
               {resource.description && (
-                <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "#475569", lineHeight: 1.5, fontWeight: 600 }}>
+                <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "#475569", lineHeight: 1.5 }}>
                   {resource.description}
                 </p>
               )}
@@ -416,7 +416,7 @@ export default function ClientLandingPage() {
                       {item.title}
                     </h3>
                     {item.description && (
-                      <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "#64748b", marginTop: "0.25rem", lineHeight: 1.4, fontWeight: 600 }}>
+                      <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "#64748b", marginTop: "0.25rem", lineHeight: 1.4 }}>
                         {item.description}
                       </p>
                     )}

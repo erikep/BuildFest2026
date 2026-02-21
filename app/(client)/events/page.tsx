@@ -155,9 +155,9 @@ function EventsCalendar({ events, onEventClick }: { events: Event[]; onEventClic
             key={label}
             style={{
               padding: "0.5rem",
-              fontSize: "0.7rem", fontWeight: 600,
-              fontWeight: 600,
-              color: "#64748b",
+fontSize: "0.7rem",
+                fontWeight: 600,
+                color: "#64748b",
               textAlign: "center",
             }}
           >
@@ -269,7 +269,7 @@ export default function ClientEventsPage() {
           display: "inline-block",
           marginBottom: "1.5rem",
           color: "#510C76",
-          fontSize: "0.875rem", fontWeight: 600,
+          fontSize: "0.875rem",
           fontWeight: 500,
         }}
       >
@@ -348,17 +348,17 @@ export default function ClientEventsPage() {
                   {formatDate(event.date)}
                 </span>
                 <h3 style={{ fontSize: "1.125rem", fontWeight: 700 }}>{event.title}</h3>
-                <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "#64748b", fontWeight: 600 }}>
+                <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "#64748b" }}>
                   {event.location}
                 </p>
                 {event.description && (
                   <p
                     style={{
-                      fontSize: "0.85rem", fontWeight: 600,
+                      fontSize: "0.85rem",
+                      fontWeight: 600,
                       color: "#475569",
                       lineHeight: 1.5,
                       marginTop: "0.25rem",
-                      fontWeight: 600,
                     }}
                   >
                     {event.description}
@@ -385,7 +385,7 @@ export default function ClientEventsPage() {
       )}
 
       {!loading && events.length > 0 && (
-        <p style={{ marginTop: "2rem", fontSize: "0.9rem", fontWeight: 600, color: "#64748b", fontWeight: 600 }}>
+        <p style={{ marginTop: "2rem", fontSize: "0.9rem", fontWeight: 600, color: "#64748b" }}>
           Attended an event?{" "}
           <Link href="/feedback" style={{ color: "#510C76", fontWeight: 600 }}>
             Leave feedback
