@@ -28,6 +28,52 @@ const mockEvents: Event[] = [
   },
 ];
 
+type Resource = { id: number; title: string; url: string; description?: string };
+const mockResources: Resource[] = [
+  {
+    id: 1,
+    title: "SNAP Benefits",
+    url: "https://www.benefits.gov/benefit/361",
+    description: "Apply for Supplemental Nutrition Assistance Program (SNAP) to help buy groceries.",
+  },
+  {
+    id: 2,
+    title: "211 Helpline",
+    url: "https://www.211.org",
+    description: "Free referral service for food, housing, health care, and more. Call 211 or search online.",
+  },
+  {
+    id: 3,
+    title: "Local Food Banks",
+    url: "https://www.feedingamerica.org/find-your-local-foodbank",
+    description: "Find food banks and pantries near you through Feeding America.",
+  },
+];
+
+type ActionItem = { id: number; title: string; description?: string; dueDate?: string; completed: boolean };
+const mockActionItems: ActionItem[] = [
+  {
+    id: 1,
+    title: "Update contact info",
+    description: "Ensure we have your current phone and email for event reminders.",
+    dueDate: "2026-03-01",
+    completed: false,
+  },
+  {
+    id: 2,
+    title: "Complete volunteer interest form",
+    description: "Let us know how you’d like to help.",
+    dueDate: "2026-03-15",
+    completed: false,
+  },
+  {
+    id: 3,
+    title: "Review notification preferences",
+    description: "Choose how you want to receive alerts (email, SMS, or push).",
+    completed: true,
+  },
+];
+
 function formatDate(dateStr: string): string {
   const d = new Date(dateStr + "T00:00:00");
   return d.toLocaleDateString("en-US", {
@@ -193,6 +239,132 @@ export default function ClientLandingPage() {
             </Link>
           </div>
         )}
+      </section>
+
+      {/* External Resources */}
+      <section
+        style={{
+          maxWidth: "56rem",
+          margin: "0 auto",
+          padding: "3rem 1.5rem",
+          borderTop: "1px solid #e2e8f0",
+        }}
+      >
+        <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "0.25rem" }}>
+          External Resources
+        </h2>
+        <p style={{ color: "#64748b", marginBottom: "1.5rem", fontSize: "0.95rem" }}>
+          Helpful links for food assistance, housing, and community services.
+        </p>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(16rem, 1fr))",
+            gap: "1.25rem",
+          }}
+        >
+          {mockResources.map((resource) => (
+            <a
+              key={resource.id}
+              href={resource.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "block",
+                background: "#fff",
+                border: "1px solid #e2e8f0",
+                borderRadius: "12px",
+                padding: "1.25rem",
+                textDecoration: "none",
+                color: "inherit",
+                transition: "box-shadow 0.2s, border-color 0.2s",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+              }}
+            >
+              <h3 style={{ fontSize: "1.125rem", fontWeight: 700, color: "#7c3aed", marginBottom: "0.5rem" }}>
+                {resource.title}
+              </h3>
+              {resource.description && (
+                <p style={{ fontSize: "0.85rem", color: "#475569", lineHeight: 1.5 }}>
+                  {resource.description}
+                </p>
+              )}
+              <span style={{ fontSize: "0.8rem", color: "#7c3aed", fontWeight: 500, marginTop: "0.5rem", display: "inline-block" }}>
+                Visit link &rarr;
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* Action Needed */}
+      <section
+        style={{
+          maxWidth: "56rem",
+          margin: "0 auto",
+          padding: "3rem 1.5rem",
+          borderTop: "1px solid #e2e8f0",
+        }}
+      >
+        <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "0.25rem" }}>
+          Action Needed
+        </h2>
+        <p style={{ color: "#64748b", marginBottom: "1.5rem", fontSize: "0.95rem" }}>
+          Items that may need your attention.
+        </p>
+        <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+          {mockActionItems.map((item) => (
+            <li
+              key={item.id}
+              style={{
+                background: "#fff",
+                border: "1px solid #e2e8f0",
+                borderRadius: "12px",
+                padding: "1rem 1.25rem",
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "1rem",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+                opacity: item.completed ? 0.75 : 1,
+              }}
+            >
+              <span
+                style={{
+                  flexShrink: 0,
+                  width: "1.25rem",
+                  height: "1.25rem",
+                  borderRadius: "4px",
+                  border: "2px solid",
+                  borderColor: item.completed ? "#22c55e" : "#e2e8f0",
+                  background: item.completed ? "#22c55e" : "transparent",
+                }}
+                aria-hidden
+              />
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <h3
+                  style={{
+                    fontSize: "1rem",
+                    fontWeight: 600,
+                    textDecoration: item.completed ? "line-through" : "none",
+                    color: item.completed ? "#94a3b8" : "#1e293b",
+                  }}
+                >
+                  {item.title}
+                </h3>
+                {item.description && (
+                  <p style={{ fontSize: "0.85rem", color: "#64748b", marginTop: "0.25rem", lineHeight: 1.4 }}>
+                    {item.description}
+                  </p>
+                )}
+                {item.dueDate && !item.completed && (
+                  <p style={{ fontSize: "0.8rem", color: "#7c3aed", marginTop: "0.35rem", fontWeight: 500 }}>
+                    Due {formatDate(item.dueDate)}
+                  </p>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
       </section>
     </>
   );
