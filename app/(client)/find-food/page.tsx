@@ -80,7 +80,7 @@ export default function FindFoodPage() {
           onClick={handleUseMyLocation}
           style={{
             padding: "0.5rem 1rem",
-            background: "#7c3aed",
+            background: "#510C76",
             color: "#fff",
             border: "none",
             borderRadius: "8px",

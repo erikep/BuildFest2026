@@ -121,7 +121,7 @@ export default function StaffDashboardPage() {
               <p style={{ fontSize: "0.8rem", color: "#64748b", marginBottom: "0.25rem" }}>
                 Upcoming
               </p>
-              <p style={{ fontSize: "1.75rem", fontWeight: 700, color: "#510C76" }}>
+              <p style={{ fontSize: "1.75rem", fontWeight: 700, color: "#1e293b" }}>
                 {events.filter((e) => isUpcoming(e.date)).length}
               </p>
             </div>

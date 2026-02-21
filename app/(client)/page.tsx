@@ -278,16 +278,17 @@ export default function ClientLandingPage() {
         <p style={{ marginBottom: "1.5rem" }}>
           <Link
             href="/find-food"
+            className="header-nav-link"
             style={{
               display: "inline-flex",
               alignItems: "center",
               gap: "0.35rem",
               fontSize: "0.95rem",
               fontWeight: 600,
-              color: "#7c3aed",
+              color: "#510C76",
             }}
           >
-            📍 Find food shelves and kitchens near you
+            📍 Find Food shelves and kitchens near you
           </Link>
         </p>
         <div

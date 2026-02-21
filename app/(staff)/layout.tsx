@@ -41,7 +41,7 @@ export default function StaffLayout({
             <Link href="/staff/impact" className="header-nav-link" style={{ color: "#fff", fontWeight: 700 }}>
               Impact
             </Link>
-            <Link href="/staff/locations" style={{ color: "#94a3b8", fontWeight: 500 }}>
+            <Link href="/staff/locations" className="header-nav-link" style={{ color: "#fff", fontWeight: 700 }}>
               Locations
             </Link>
           </nav>

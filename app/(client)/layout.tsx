@@ -45,9 +45,10 @@ export default function ClientLayout({
           </Link>
           <Link
             href="/find-food"
-            style={{ color: "#475569", fontWeight: 500 }}
+            className="header-nav-link"
+            style={{ color: "#510C76", fontWeight: 700 }}
           >
-            Find food
+            Find Food
           </Link>
           <Link
             href="/notifications"
