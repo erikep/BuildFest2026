@@ -2,6 +2,21 @@
 
 This guide walks you through hosting the app on [Railway](https://railway.app) with SQLite on a persistent volume.
 
+---
+
+## Deploy failing with "Environment variable not found: DATABASE_URL"?
+
+The container **must** have `DATABASE_URL` set or Prisma will exit and the app will never start.
+
+1. In Railway, open your **project** → select the **service** (your app).
+2. Go to the **Variables** tab.
+3. Click **+ New Variable** (or **Add Variable**).
+4. Name: **`DATABASE_URL`**  
+   Value: **`file:/data/sqlite.db`**
+5. Save. Railway will redeploy automatically. If you already added a volume mounted at `/data`, the next deploy should succeed.
+
+---
+
 ## Prerequisites
 
 - A [Railway](https://railway.app) account (GitHub login)
