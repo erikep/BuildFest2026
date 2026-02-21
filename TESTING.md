@@ -1,5 +1,20 @@
 # How to test that the code works
 
+## Person B: First-time API/DB setup
+
+After cloning or pulling (with Prisma and API changes), run once:
+
+```bash
+npm install
+cp .env.example .env   # or create .env with DATABASE_URL="file:./dev.db"
+npx prisma generate
+npx prisma db push
+```
+
+Then the API uses the SQLite DB at `prisma/dev.db`.
+
+---
+
 ## 1. Verify the app builds
 
 From the project root:

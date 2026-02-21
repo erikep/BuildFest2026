@@ -13,7 +13,11 @@
     "jsx": "preserve",
     "incremental": true,
     "plugins": [{ "name": "next" }],
-    "paths": { "@/*": ["./*"] }
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      ".prisma/client/*": ["./node_modules/.prisma/client/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
