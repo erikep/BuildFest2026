@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { Event } from "@/types/events";
+import { EventDetailModal } from "@/app/components/EventDetailModal";
 
 const mockEvents: Event[] = [
   {
@@ -87,6 +88,8 @@ function formatDate(dateStr: string): string {
 export default function ClientLandingPage() {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
+  const [actionItemsOpen, setActionItemsOpen] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
 
   useEffect(() => {
     fetch("/api/events")
@@ -179,8 +182,10 @@ export default function ClientLandingPage() {
             }}
           >
             {upcoming.map((event) => (
-              <div
+              <button
                 key={event.id}
+                type="button"
+                onClick={() => setSelectedEvent(event)}
                 style={{
                   background: "#fff",
                   border: "1px solid #e2e8f0",
@@ -191,6 +196,8 @@ export default function ClientLandingPage() {
                   gap: "0.5rem",
                   transition: "box-shadow 0.2s",
                   boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+                  cursor: "pointer",
+                  textAlign: "left",
                 }}
               >
                 <span
@@ -220,7 +227,7 @@ export default function ClientLandingPage() {
                     {event.description}
                   </p>
                 )}
-              </div>
+              </button>
             ))}
           </div>
         )}
@@ -297,7 +304,7 @@ export default function ClientLandingPage() {
         </div>
       </section>
 
-      {/* Action Needed */}
+      {/* Next Steps */}
       <section
         style={{
           maxWidth: "56rem",
@@ -306,66 +313,103 @@ export default function ClientLandingPage() {
           borderTop: "1px solid #e2e8f0",
         }}
       >
-        <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "0.25rem" }}>
-          Action Needed
-        </h2>
-        <p style={{ color: "#64748b", marginBottom: "1.5rem", fontSize: "0.95rem" }}>
-          Items that may need your attention.
-        </p>
-        <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-          {mockActionItems.map((item) => (
-            <li
-              key={item.id}
-              style={{
-                background: "#fff",
-                border: "1px solid #e2e8f0",
-                borderRadius: "12px",
-                padding: "1rem 1.25rem",
-                display: "flex",
-                alignItems: "flex-start",
-                gap: "1rem",
-                boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
-                opacity: item.completed ? 0.75 : 1,
-              }}
+        <button
+          type="button"
+          onClick={() => setActionItemsOpen((o) => !o)}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            background: "none",
+            border: "none",
+            padding: 0,
+            cursor: "pointer",
+            fontSize: "1.5rem",
+            fontWeight: 700,
+            color: "#1e293b",
+          }}
+          aria-expanded={actionItemsOpen}
+          aria-controls="action-items-list"
+        >
+          Next Steps
+          <span
+            style={{
+              display: "inline-block",
+              transition: "transform 0.2s",
+              transform: actionItemsOpen ? "rotate(180deg)" : "rotate(0deg)",
+            }}
+          >
+            ▾
+          </span>
+        </button>
+        {actionItemsOpen && (
+          <>
+            <p style={{ color: "#64748b", marginTop: "0.25rem", marginBottom: "1.5rem", fontSize: "0.95rem" }}>
+              Things you might want to check out.
+            </p>
+            <ul
+              id="action-items-list"
+              style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}
             >
-              <span
-                style={{
-                  flexShrink: 0,
-                  width: "1.25rem",
-                  height: "1.25rem",
-                  borderRadius: "4px",
-                  border: "2px solid",
-                  borderColor: item.completed ? "#22c55e" : "#e2e8f0",
-                  background: item.completed ? "#22c55e" : "transparent",
-                }}
-                aria-hidden
-              />
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <h3
+              {mockActionItems.map((item) => (
+                <li
+                  key={item.id}
                   style={{
-                    fontSize: "1rem",
-                    fontWeight: 600,
-                    textDecoration: item.completed ? "line-through" : "none",
-                    color: item.completed ? "#94a3b8" : "#1e293b",
+                    background: "#fff",
+                    border: "1px solid #e2e8f0",
+                    borderRadius: "12px",
+                    padding: "1rem 1.25rem",
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "1rem",
+                    boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+                    opacity: item.completed ? 0.75 : 1,
                   }}
                 >
-                  {item.title}
-                </h3>
-                {item.description && (
-                  <p style={{ fontSize: "0.85rem", color: "#64748b", marginTop: "0.25rem", lineHeight: 1.4 }}>
-                    {item.description}
-                  </p>
-                )}
-                {item.dueDate && !item.completed && (
-                  <p style={{ fontSize: "0.8rem", color: "#7c3aed", marginTop: "0.35rem", fontWeight: 500 }}>
-                    Due {formatDate(item.dueDate)}
-                  </p>
-                )}
-              </div>
-            </li>
-          ))}
-        </ul>
+                  <span
+                    style={{
+                      flexShrink: 0,
+                      width: "1.25rem",
+                      height: "1.25rem",
+                      borderRadius: "4px",
+                      border: "2px solid",
+                      borderColor: item.completed ? "#22c55e" : "#e2e8f0",
+                      background: item.completed ? "#22c55e" : "transparent",
+                    }}
+                    aria-hidden
+                  />
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <h3
+                      style={{
+                        fontSize: "1rem",
+                        fontWeight: 600,
+                        textDecoration: item.completed ? "line-through" : "none",
+                        color: item.completed ? "#94a3b8" : "#1e293b",
+                      }}
+                    >
+                      {item.title}
+                    </h3>
+                    {item.description && (
+                      <p style={{ fontSize: "0.85rem", color: "#64748b", marginTop: "0.25rem", lineHeight: 1.4 }}>
+                        {item.description}
+                      </p>
+                    )}
+                    {item.dueDate && !item.completed && (
+                      <p style={{ fontSize: "0.8rem", color: "#7c3aed", marginTop: "0.35rem", fontWeight: 500 }}>
+                        Due {formatDate(item.dueDate)}
+                      </p>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
       </section>
+
+      {selectedEvent && (
+        <EventDetailModal event={selectedEvent} onClose={() => setSelectedEvent(null)} />
+      )}
     </>
   );
 }
