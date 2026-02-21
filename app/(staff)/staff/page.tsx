@@ -204,6 +204,16 @@ export default function StaffDashboardPage() {
                       </div>
                       <div style={{ display: "flex", gap: "0.5rem", flexShrink: 0 }}>
                         <Link
+                          href={`/staff/events/${event.id}/check-in`}
+                          style={{
+                            fontSize: "0.8rem",
+                            color: "#047857",
+                            fontWeight: 500,
+                          }}
+                        >
+                          Check-in
+                        </Link>
+                        <Link
                           href={`/staff/events/${event.id}/inventory`}
                           style={{
                             fontSize: "0.8rem",

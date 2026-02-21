@@ -153,6 +153,17 @@ export default function EventsListPage() {
                     Edit
                   </Link>
                   <Link
+                    href={`/staff/events/${event.id}/check-in`}
+                    style={{
+                      ...buttonStyle,
+                      background: "#ecfdf5",
+                      color: "#047857",
+                      textDecoration: "none",
+                    }}
+                  >
+                    Check-in
+                  </Link>
+                  <Link
                     href={`/staff/events/${event.id}/inventory`}
                     style={{
                       ...buttonStyle,
