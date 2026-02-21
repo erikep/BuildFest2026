@@ -266,8 +266,23 @@ export default function ClientLandingPage() {
         <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "0.25rem" }}>
           External Resources
         </h2>
-        <p style={{ color: "#64748b", marginBottom: "1.5rem", fontSize: "0.95rem" }}>
+        <p style={{ color: "#64748b", marginBottom: "0.5rem", fontSize: "0.95rem" }}>
           Helpful links for food assistance, housing, and community services.
+        </p>
+        <p style={{ marginBottom: "1.5rem" }}>
+          <Link
+            href="/find-food"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.35rem",
+              fontSize: "0.95rem",
+              fontWeight: 600,
+              color: "#7c3aed",
+            }}
+          >
+            📍 Find food shelves and kitchens near you
+          </Link>
         </p>
         <div
           style={{

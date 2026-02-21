@@ -36,6 +36,20 @@ async function main() {
 
   const count = await prisma.event.count();
   console.log("Events in DB:", count);
+
+  // Seed sample locations (food shelves / kitchens) if none exist
+  const existingLocations = await prisma.location.findMany();
+  if (existingLocations.length === 0) {
+    const sampleLocations = [
+      { name: "Community Food Shelf", type: "SHELF", address: "123 Main St", latitude: 44.9537, longitude: -93.09, url: null },
+      { name: "Downtown Kitchen", type: "KITCHEN", address: "456 Oak Ave", latitude: 44.96, longitude: -93.10, url: null },
+    ];
+    for (const loc of sampleLocations) {
+      await prisma.location.create({ data: loc });
+      console.log("Created location:", loc.name);
+    }
+    console.log("Locations in DB:", sampleLocations.length);
+  }
 }
 
 main()

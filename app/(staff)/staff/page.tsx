@@ -330,6 +330,15 @@ export default function StaffDashboardPage() {
                 View total events, check-ins, food distributed, and waste prevented.
               </p>
             </Link>
+            <Link href="/staff/locations" style={cardStyle}>
+              <div style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>📍</div>
+              <h3 style={{ fontSize: "1.125rem", fontWeight: 700, marginBottom: "0.375rem" }}>
+                Locations
+              </h3>
+              <p style={{ fontSize: "0.875rem", color: "#64748b", lineHeight: 1.5 }}>
+                Add and edit food shelves and kitchens for the Find food map.
+              </p>
+            </Link>
           </div>
         </>
       )}

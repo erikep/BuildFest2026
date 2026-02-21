@@ -42,6 +42,12 @@ export default function ClientLayout({
             Events
           </Link>
           <Link
+            href="/find-food"
+            style={{ color: "#475569", fontWeight: 500 }}
+          >
+            Find food
+          </Link>
+          <Link
             href="/notifications"
             style={{ color: "#475569", fontWeight: 500 }}
           >
