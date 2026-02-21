@@ -67,7 +67,6 @@ export function EventDetailModal({
   event: Event;
   onClose: () => void;
 }) {
-  const [channel, setChannel] = useState<"EMAIL" | "SMS">("EMAIL");
   const [contact, setContact] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
@@ -80,11 +79,7 @@ export function EventDetailModal({
       const res = await fetch(`/api/events/${event.id}/notify`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          channel,
-          email: channel === "EMAIL" ? contact : undefined,
-          phone: channel === "SMS" ? contact : undefined,
-        }),
+        body: JSON.stringify({ email: contact }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Request failed");
@@ -204,50 +199,14 @@ export function EventDetailModal({
             Notify me
           </p>
           <p style={{ fontSize: "0.75rem", color: "#64748b", marginBottom: "0.75rem" }}>
-            Get a reminder sent to your phone or email.
+            Get a reminder sent to your email.
           </p>
           <form onSubmit={handleNotify}>
-            <div style={{ display: "flex", gap: "0.5rem", marginBottom: "0.5rem" }}>
-              <button
-                type="button"
-                onClick={() => setChannel("EMAIL")}
-                style={{
-                  flex: 1,
-                  padding: "0.4rem 0.75rem",
-                  border: `2px solid ${channel === "EMAIL" ? "#7c3aed" : "#e2e8f0"}`,
-                  background: channel === "EMAIL" ? "#f5f3ff" : "#fff",
-                  borderRadius: "6px",
-                  fontSize: "0.8rem",
-                  fontWeight: 600,
-                  color: channel === "EMAIL" ? "#7c3aed" : "#64748b",
-                  cursor: "pointer",
-                }}
-              >
-                Email
-              </button>
-              <button
-                type="button"
-                onClick={() => setChannel("SMS")}
-                style={{
-                  flex: 1,
-                  padding: "0.4rem 0.75rem",
-                  border: `2px solid ${channel === "SMS" ? "#7c3aed" : "#e2e8f0"}`,
-                  background: channel === "SMS" ? "#f5f3ff" : "#fff",
-                  borderRadius: "6px",
-                  fontSize: "0.8rem",
-                  fontWeight: 600,
-                  color: channel === "SMS" ? "#7c3aed" : "#64748b",
-                  cursor: "pointer",
-                }}
-              >
-                SMS
-              </button>
-            </div>
             <input
-              type={channel === "EMAIL" ? "email" : "tel"}
+              type="email"
               value={contact}
               onChange={(e) => setContact(e.target.value)}
-              placeholder={channel === "EMAIL" ? "you@example.com" : "555-123-4567"}
+              placeholder="you@example.com"
               required
               style={{
                 width: "100%",
