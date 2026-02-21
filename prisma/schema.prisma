@@ -42,6 +42,18 @@ model Event {
   checkIns              CheckIn[]
   feedbacks             Feedback[]
   orders                Order[]
+  notificationSubscriptions EventNotificationSubscription[]
+}
+
+model EventNotificationSubscription {
+  id        Int     @id @default(autoincrement())
+  eventId   Int
+  channel   String  // EMAIL | SMS
+  contact   String  // email address or phone number
+  createdAt DateTime @default(now())
+  event     Event   @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, channel, contact])
 }
 
 // ---------------------------------------------------------------------------
