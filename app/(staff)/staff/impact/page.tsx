@@ -132,7 +132,7 @@ export default function StaffImpactPage() {
                   <span style={{ color: "#047857", fontWeight: 600 }}>{e.foodDistributedAmount}</span>
                 </div>
                 <p style={{ fontSize: "0.8125rem", color: "#64748b", marginTop: "0.25rem" }}>{formatDate(e.date)}</p>
-                <Link href={`/staff/events/${e.id}/edit`} style={{ fontSize: "0.8125rem", color: "#2563eb", marginTop: "0.5rem", display: "inline-block" }}>
+                <Link href={`/staff/events/${e.id}/edit`} style={{ fontSize: "0.8125rem", color: "#510C76", marginTop: "0.5rem", display: "inline-block" }}>
                   Edit event
                 </Link>
               </li>
@@ -169,7 +169,7 @@ export default function StaffImpactPage() {
                   <span style={{ color: "#b45309", fontWeight: 600 }}>{e.foodWastePrevented}</span>
                 </div>
                 <p style={{ fontSize: "0.8125rem", color: "#64748b", marginTop: "0.25rem" }}>{formatDate(e.date)}</p>
-                <Link href={`/staff/events/${e.id}/edit`} style={{ fontSize: "0.8125rem", color: "#2563eb", marginTop: "0.5rem", display: "inline-block" }}>
+                <Link href={`/staff/events/${e.id}/edit`} style={{ fontSize: "0.8125rem", color: "#510C76", marginTop: "0.5rem", display: "inline-block" }}>
                   Edit event
                 </Link>
               </li>

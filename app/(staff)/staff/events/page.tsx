@@ -110,7 +110,7 @@ export default function EventsListPage() {
           href="/staff/events/new"
           style={{
             ...buttonStyle,
-            background: "#2563eb",
+            background: "#510C76",
             color: "#fff",
             textDecoration: "none",
           }}
@@ -129,7 +129,7 @@ export default function EventsListPage() {
           <Link
             href="/staff/events/new"
             style={{
-              color: "#2563eb",
+              color: "#510C76",
               fontWeight: 600,
             }}
           >
@@ -148,7 +148,7 @@ export default function EventsListPage() {
                     style={{
                       fontSize: "0.75rem",
                       fontWeight: 600,
-                      color: "#2563eb",
+                      color: "#510C76",
                       textTransform: "uppercase",
                       letterSpacing: "0.05em",
                     }}
@@ -223,8 +223,8 @@ export default function EventsListPage() {
                     href={`/staff/events/${event.id}/inventory`}
                     style={{
                       ...buttonStyle,
-                      background: "#dbeafe",
-                      color: "#1d4ed8",
+                      background: "#ede5f2",
+                      color: "#510C76",
                       textDecoration: "none",
                     }}
                   >

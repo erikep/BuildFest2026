@@ -221,7 +221,7 @@ export default function InventoryPage() {
             style={{
               display: "inline-block",
               marginTop: "1rem",
-              color: "#2563eb",
+              color: "#510C76",
               fontWeight: 600,
             }}
           >
@@ -280,7 +280,7 @@ export default function InventoryPage() {
                     {item.eventId ? (
                       <Link
                         href={`/staff/events/${item.eventId}/inventory`}
-                        style={{ color: "#2563eb", fontSize: "0.9rem" }}
+                        style={{ color: "#510C76", fontSize: "0.9rem" }}
                       >
                         {getEventTitle(item.eventId)}
                       </Link>

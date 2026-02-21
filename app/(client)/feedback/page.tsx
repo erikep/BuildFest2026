@@ -86,7 +86,7 @@ export default function ClientFeedbackPage() {
         style={{
           display: "inline-block",
           marginBottom: "1.5rem",
-          color: "#7c3aed",
+          color: "#510C76",
           fontSize: "0.875rem",
           fontWeight: 500,
         }}
@@ -193,7 +193,7 @@ export default function ClientFeedbackPage() {
             disabled={status === "submitting" || !eventId}
             style={{
               padding: "0.75rem 1.5rem",
-              background: status === "submitting" || !eventId ? "#cbd5e1" : "#7c3aed",
+              background: status === "submitting" || !eventId ? "#cbd5e1" : "#510C76",
               color: "#fff",
               border: "none",
               borderRadius: "8px",

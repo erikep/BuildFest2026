@@ -121,7 +121,7 @@ export default function StaffDashboardPage() {
               <p style={{ fontSize: "0.8rem", color: "#64748b", marginBottom: "0.25rem" }}>
                 Upcoming
               </p>
-              <p style={{ fontSize: "1.75rem", fontWeight: 700, color: "#2563eb" }}>
+              <p style={{ fontSize: "1.75rem", fontWeight: 700, color: "#510C76" }}>
                 {events.filter((e) => isUpcoming(e.date)).length}
               </p>
             </div>
@@ -173,7 +173,7 @@ export default function StaffDashboardPage() {
                 <h3 style={{ fontSize: "1.125rem", fontWeight: 700 }}>Upcoming Events</h3>
                 <Link
                   href="/staff/events"
-                  style={{ fontSize: "0.875rem", color: "#2563eb", fontWeight: 600 }}
+                  style={{ fontSize: "0.875rem", color: "#510C76", fontWeight: 600 }}
                 >
                   View all
                 </Link>
@@ -217,7 +217,7 @@ export default function StaffDashboardPage() {
                           href={`/staff/events/${event.id}/inventory`}
                           style={{
                             fontSize: "0.8rem",
-                            color: "#2563eb",
+                            color: "#510C76",
                             fontWeight: 500,
                           }}
                         >
@@ -253,7 +253,7 @@ export default function StaffDashboardPage() {
                 <h3 style={{ fontSize: "1.125rem", fontWeight: 700 }}>Inventory Summary</h3>
                 <Link
                   href="/staff/inventory"
-                  style={{ fontSize: "0.875rem", color: "#2563eb", fontWeight: 600 }}
+                  style={{ fontSize: "0.875rem", color: "#510C76", fontWeight: 600 }}
                 >
                   View all
                 </Link>

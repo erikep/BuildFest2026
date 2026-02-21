@@ -94,6 +94,11 @@ function EventsCalendar({ events, onEventClick }: { events: Event[]; onEventClic
         borderRadius: "12px",
         padding: "1.25rem",
         boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+        width: "100%",
+        maxWidth: "100%",
+        minWidth: 0,
+        overflow: "hidden",
+        boxSizing: "border-box",
       }}
     >
       <div
@@ -117,7 +122,7 @@ function EventsCalendar({ events, onEventClick }: { events: Event[]; onEventClic
               borderRadius: "6px",
               background: "#fff",
               cursor: "pointer",
-              fontSize: "0.9rem",
+              fontSize: "0.9rem", fontWeight: 600,
             }}
           >
             &larr;
@@ -131,7 +136,7 @@ function EventsCalendar({ events, onEventClick }: { events: Event[]; onEventClic
               borderRadius: "6px",
               background: "#fff",
               cursor: "pointer",
-              fontSize: "0.9rem",
+              fontSize: "0.9rem", fontWeight: 600,
             }}
           >
             &rarr;
@@ -141,7 +146,7 @@ function EventsCalendar({ events, onEventClick }: { events: Event[]; onEventClic
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(7, 1fr)",
+          gridTemplateColumns: "repeat(7, minmax(0, 1fr))",
           gap: "2px",
         }}
       >
@@ -150,7 +155,7 @@ function EventsCalendar({ events, onEventClick }: { events: Event[]; onEventClic
             key={label}
             style={{
               padding: "0.5rem",
-              fontSize: "0.7rem",
+              fontSize: "0.7rem", fontWeight: 600,
               fontWeight: 600,
               color: "#64748b",
               textAlign: "center",
@@ -161,7 +166,7 @@ function EventsCalendar({ events, onEventClick }: { events: Event[]; onEventClic
         ))}
         {days.map((cell, i) => {
           if (!cell.date) {
-            return <div key={`empty-${i}`} style={{ aspectRatio: "1", minHeight: "2.5rem" }} />;
+            return <div key={`empty-${i}`} style={{ aspectRatio: "1", minHeight: 0 }} />;
           }
           const dayEvents = cell.key ? (eventsByDate.get(cell.key) ?? []) : [];
           return (
@@ -169,14 +174,15 @@ function EventsCalendar({ events, onEventClick }: { events: Event[]; onEventClic
               key={cell.key}
               style={{
                 aspectRatio: "1",
-                minHeight: "2.5rem",
+                minHeight: 0,
                 border: "1px solid #e2e8f0",
                 borderRadius: "8px",
                 padding: "0.25rem",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                background: dayEvents.length > 0 ? "#f5f3ff" : "#fff",
+                background: dayEvents.length > 0 ? "#ede5f2" : "#fff",
+                overflow: "hidden",
               }}
             >
               <span style={{ fontSize: "0.8rem", fontWeight: 600, color: "#1e293b" }}>
@@ -203,7 +209,7 @@ function EventsCalendar({ events, onEventClick }: { events: Event[]; onEventClic
                       title={e.title}
                       style={{
                         fontSize: "0.6rem",
-                        background: "#7c3aed",
+                        background: "#510C76",
                         color: "#fff",
                         padding: "1px 4px",
                         borderRadius: "4px",
@@ -256,14 +262,14 @@ export default function ClientEventsPage() {
   }, []);
 
   return (
-    <div style={{ maxWidth: "56rem", margin: "0 auto", padding: "2rem 1.5rem" }}>
+    <div style={{ maxWidth: "56rem", margin: "0 auto", padding: "2rem 1.5rem", width: "100%", boxSizing: "border-box", overflowX: "hidden" }}>
       <Link
         href="/"
         style={{
           display: "inline-block",
           marginBottom: "1.5rem",
-          color: "#7c3aed",
-          fontSize: "0.875rem",
+          color: "#510C76",
+          fontSize: "0.875rem", fontWeight: 600,
           fontWeight: 500,
         }}
       >
@@ -273,7 +279,7 @@ export default function ClientEventsPage() {
       <h1 style={{ fontSize: "1.75rem", fontWeight: 700, marginBottom: "0.25rem" }}>
         All Events
       </h1>
-      <p style={{ color: "#64748b", marginBottom: "1.5rem", fontSize: "0.95rem" }}>
+      <p style={{ color: "#64748b", marginBottom: "1.5rem", fontSize: "0.95rem", fontWeight: 600 }}>
         Browse community events and find ways to get involved.
       </p>
 
@@ -285,7 +291,7 @@ export default function ClientEventsPage() {
             borderRadius: "8px",
             padding: "0.75rem 1rem",
             marginBottom: "1.25rem",
-            fontSize: "0.85rem",
+            fontSize: "0.85rem", fontWeight: 600,
             color: "#92400e",
           }}
         >
@@ -316,6 +322,7 @@ export default function ClientEventsPage() {
               <button
                 key={event.id}
                 type="button"
+                className="upcoming-event-card"
                 onClick={() => setSelectedEvent(event)}
                 style={{
                   background: "#fff",
@@ -325,7 +332,6 @@ export default function ClientEventsPage() {
                   display: "flex",
                   flexDirection: "column",
                   gap: "0.5rem",
-                  boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
                   cursor: "pointer",
                   textAlign: "left",
                 }}
@@ -334,7 +340,7 @@ export default function ClientEventsPage() {
                   style={{
                     fontSize: "0.75rem",
                     fontWeight: 600,
-                    color: "#7c3aed",
+                    color: "#510C76",
                     textTransform: "uppercase",
                     letterSpacing: "0.05em",
                   }}
@@ -342,16 +348,17 @@ export default function ClientEventsPage() {
                   {formatDate(event.date)}
                 </span>
                 <h3 style={{ fontSize: "1.125rem", fontWeight: 700 }}>{event.title}</h3>
-                <p style={{ fontSize: "0.85rem", color: "#64748b" }}>
+                <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "#64748b", fontWeight: 600 }}>
                   {event.location}
                 </p>
                 {event.description && (
                   <p
                     style={{
-                      fontSize: "0.85rem",
+                      fontSize: "0.85rem", fontWeight: 600,
                       color: "#475569",
                       lineHeight: 1.5,
                       marginTop: "0.25rem",
+                      fontWeight: 600,
                     }}
                   >
                     {event.description}
@@ -361,11 +368,11 @@ export default function ClientEventsPage() {
             ))}
           </div>
 
-          <div style={{ marginTop: "3rem" }}>
+          <div style={{ marginTop: "3rem", width: "100%", minWidth: 0, overflow: "hidden" }}>
             <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "0.25rem" }}>
               Calendar
             </h2>
-            <p style={{ color: "#64748b", marginBottom: "1rem", fontSize: "0.95rem" }}>
+            <p style={{ color: "#64748b", marginBottom: "1rem", fontSize: "0.95rem", fontWeight: 600 }}>
               View events by date.
             </p>
             <EventsCalendar events={events} onEventClick={setSelectedEvent} />
@@ -378,9 +385,9 @@ export default function ClientEventsPage() {
       )}
 
       {!loading && events.length > 0 && (
-        <p style={{ marginTop: "2rem", fontSize: "0.9rem", color: "#64748b" }}>
+        <p style={{ marginTop: "2rem", fontSize: "0.9rem", fontWeight: 600, color: "#64748b", fontWeight: 600 }}>
           Attended an event?{" "}
-          <Link href="/feedback" style={{ color: "#7c3aed", fontWeight: 600 }}>
+          <Link href="/feedback" style={{ color: "#510C76", fontWeight: 600 }}>
             Leave feedback
           </Link>
         </p>

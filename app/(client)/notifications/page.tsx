@@ -121,7 +121,7 @@ export default function NotificationPreferencesPage() {
     width: "3rem",
     height: "1.75rem",
     borderRadius: "9999px",
-    background: enabled ? "#7c3aed" : "#cbd5e1",
+    background: enabled ? "#510C76" : "#cbd5e1",
     position: "relative",
     cursor: "pointer",
     transition: "background 0.2s",
@@ -255,7 +255,7 @@ export default function NotificationPreferencesPage() {
                 onClick={requestPushPermission}
                 style={{
                   padding: "0.5rem 1rem",
-                  background: "#7c3aed",
+                  background: "#510C76",
                   color: "#fff",
                   border: "none",
                   borderRadius: "8px",
@@ -297,7 +297,7 @@ export default function NotificationPreferencesPage() {
         style={{
           width: "100%",
           padding: "0.875rem",
-          background: saving ? "#a78bfa" : "#7c3aed",
+          background: saving ? "#7a4d94" : "#510C76",
           color: "#fff",
           border: "none",
           borderRadius: "10px",

@@ -7,7 +7,7 @@ export default function ClientLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", overflowX: "hidden" }}>
       <header
         style={{
           background: "#fff",
@@ -28,16 +28,18 @@ export default function ClientLayout({
             priority
           />
         </Link>
-        <nav style={{ display: "flex", gap: "1.5rem", fontSize: "0.875rem" }}>
+        <nav style={{ display: "flex", gap: "1.5rem", fontSize: "1.0625rem" }}>
           <Link
             href="/"
-            style={{ color: "#475569", fontWeight: 500 }}
+            className="header-nav-link"
+            style={{ color: "#510C76", fontWeight: 700 }}
           >
             Home
           </Link>
           <Link
             href="/events"
-            style={{ color: "#475569", fontWeight: 500 }}
+            className="header-nav-link"
+            style={{ color: "#510C76", fontWeight: 700 }}
           >
             Events
           </Link>
@@ -49,19 +51,22 @@ export default function ClientLayout({
           </Link>
           <Link
             href="/notifications"
-            style={{ color: "#475569", fontWeight: 500 }}
+            className="header-nav-link"
+            style={{ color: "#510C76", fontWeight: 700 }}
           >
             Notifications
           </Link>
           <Link
             href="/volunteer"
-            style={{ color: "#475569", fontWeight: 500 }}
+            className="header-nav-link"
+            style={{ color: "#510C76", fontWeight: 700 }}
           >
             Volunteer
           </Link>
           <Link
             href="/feedback"
-            style={{ color: "#475569", fontWeight: 500 }}
+            className="header-nav-link"
+            style={{ color: "#510C76", fontWeight: 700 }}
           >
             Feedback
           </Link>
@@ -73,7 +78,7 @@ export default function ClientLayout({
           borderTop: "1px solid #e2e8f0",
           padding: "1.5rem",
           textAlign: "center",
-          fontSize: "0.75rem",
+          fontSize: "0.75rem", fontWeight: 600,
           color: "#94a3b8",
         }}
       >

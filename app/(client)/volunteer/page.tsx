@@ -98,7 +98,7 @@ export default function VolunteerPage() {
     width: "3.5rem",
     height: "2rem",
     borderRadius: "9999px",
-    background: enabled ? "#7c3aed" : "#cbd5e1",
+    background: enabled ? "#510C76" : "#cbd5e1",
     position: "relative",
     cursor: "pointer",
     transition: "background 0.2s",
@@ -137,7 +137,7 @@ export default function VolunteerPage() {
           alignItems: "center",
           justifyContent: "space-between",
           padding: "1.25rem 1.5rem",
-          background: volunteerStatus ? "linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)" : "#fff",
+          background: volunteerStatus ? "linear-gradient(135deg, #510C76 0%, #450a68 100%)" : "#fff",
           border: volunteerStatus ? "none" : "1px solid #e2e8f0",
           borderRadius: "16px",
           marginBottom: "2rem",
@@ -261,10 +261,10 @@ export default function VolunteerPage() {
                     onClick={() => toggleInterest(option.id)}
                     style={{
                       padding: "0.875rem 1rem",
-                      border: `2px solid ${isSelected ? "#7c3aed" : "#e2e8f0"}`,
+                      border: `2px solid ${isSelected ? "#510C76" : "#e2e8f0"}`,
                       borderRadius: "10px",
                       cursor: "pointer",
-                      background: isSelected ? "#f5f3ff" : "#fff",
+                      background: isSelected ? "#ede5f2" : "#fff",
                       transition: "all 0.2s",
                     }}
                     role="checkbox"
@@ -278,8 +278,8 @@ export default function VolunteerPage() {
                           width: "1.25rem",
                           height: "1.25rem",
                           borderRadius: "4px",
-                          border: `2px solid ${isSelected ? "#7c3aed" : "#cbd5e1"}`,
-                          background: isSelected ? "#7c3aed" : "transparent",
+                          border: `2px solid ${isSelected ? "#510C76" : "#cbd5e1"}`,
+                          background: isSelected ? "#510C76" : "transparent",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
@@ -353,7 +353,7 @@ export default function VolunteerPage() {
             style={{
               width: "100%",
               padding: "1rem",
-              background: submitting || !name || !email ? "#a78bfa" : "#7c3aed",
+              background: submitting || !name || !email ? "#7a4d94" : "#510C76",
               color: "#fff",
               border: "none",
               borderRadius: "12px",

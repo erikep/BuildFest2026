@@ -151,7 +151,7 @@ export default function EventCheckInPage() {
     return (
       <div>
         <p style={{ color: "#64748b" }}>Event not found.</p>
-        <Link href="/staff/events" style={{ color: "#2563eb", marginTop: "1rem", display: "inline-block" }}>
+        <Link href="/staff/events" style={{ color: "#510C76", marginTop: "1rem", display: "inline-block" }}>
           Back to Events
         </Link>
       </div>
@@ -291,7 +291,7 @@ export default function EventCheckInPage() {
               disabled={status === "submitting"}
               style={{
                 padding: "0.75rem 1.25rem",
-                background: status === "submitting" ? "#94a3b8" : "#2563eb",
+                background: status === "submitting" ? "#94a3b8" : "#510C76",
                 color: "#fff",
                 border: "none",
                 borderRadius: "8px",
@@ -346,10 +346,10 @@ export default function EventCheckInPage() {
                       style={{
                         marginLeft: "0.5rem",
                         padding: "0.125rem 0.5rem",
-                        background: "#dbeafe",
+                        background: "#ede5f2",
                         borderRadius: "4px",
                         fontSize: "0.75rem",
-                        color: "#1d4ed8",
+                        color: "#510C76",
                       }}
                     >
                       First-time

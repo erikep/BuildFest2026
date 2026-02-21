@@ -141,7 +141,7 @@ export function EventDetailModal({
             &times;
           </button>
         </div>
-        <p style={{ fontSize: "0.875rem", color: "#7c3aed", fontWeight: 600, marginBottom: "0.5rem" }}>
+        <p style={{ fontSize: "0.875rem", color: "#510C76", fontWeight: 600, marginBottom: "0.5rem" }}>
           {formatDate(event.date)}
         </p>
         <p style={{ fontSize: "0.9rem", color: "#64748b", marginBottom: "0.75rem" }}>
@@ -163,7 +163,7 @@ export function EventDetailModal({
             style={{
               display: "block",
               padding: "0.5rem 1rem",
-              background: "#7c3aed",
+              background: "#510C76",
               color: "#fff",
               borderRadius: "8px",
               fontSize: "0.9rem",
@@ -180,8 +180,8 @@ export function EventDetailModal({
               display: "block",
               padding: "0.5rem 1rem",
               background: "#fff",
-              color: "#7c3aed",
-              border: "2px solid #7c3aed",
+              color: "#510C76",
+              border: "2px solid #510C76",
               borderRadius: "8px",
               fontSize: "0.9rem",
               fontWeight: 600,
@@ -224,7 +224,7 @@ export function EventDetailModal({
               style={{
                 width: "100%",
                 padding: "0.5rem 1rem",
-                background: loading ? "#a78bfa" : "#7c3aed",
+                background: loading ? "#7a4d94" : "#510C76",
                 color: "#fff",
                 border: "none",
                 borderRadius: "8px",

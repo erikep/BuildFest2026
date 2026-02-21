@@ -201,7 +201,7 @@ export default function EventInventoryPage() {
           onClick={() => setShowForm(true)}
           style={{
             padding: "0.625rem 1.25rem",
-            background: "#2563eb",
+            background: "#510C76",
             color: "#fff",
             border: "none",
             borderRadius: "8px",
@@ -282,7 +282,7 @@ export default function EventInventoryPage() {
               type="submit"
               style={{
                 padding: "0.625rem 1.25rem",
-                background: "#2563eb",
+                background: "#510C76",
                 color: "#fff",
                 border: "none",
                 borderRadius: "8px",

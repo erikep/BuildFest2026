@@ -231,7 +231,7 @@ export default function EditEventPage() {
               style={{
                 flex: 1,
                 padding: "0.75rem",
-                background: status === "submitting" ? "#94a3b8" : "#2563eb",
+                background: status === "submitting" ? "#94a3b8" : "#510C76",
                 color: "#fff",
                 border: "none",
                 borderRadius: "8px",

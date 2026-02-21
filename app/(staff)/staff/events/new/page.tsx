@@ -172,7 +172,7 @@ export default function NewEventPage() {
           disabled={status === "submitting"}
           style={{
             padding: "0.75rem 1.25rem",
-            background: status === "submitting" ? "#94a3b8" : "#2563eb",
+            background: status === "submitting" ? "#94a3b8" : "#510C76",
             color: "#fff",
             border: "none",
             borderRadius: "8px",

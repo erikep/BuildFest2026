@@ -63,7 +63,7 @@ const mockActionItems: ActionItem[] = [
   {
     id: 2,
     title: "Complete volunteer interest form",
-    description: "Let us know how you’d like to help.",
+    description: "Let us know how you'd like to help.",
     dueDate: "2026-03-15",
     completed: false,
   },
@@ -108,40 +108,47 @@ export default function ClientLandingPage() {
   const upcoming = events.slice(0, 3);
 
   return (
-    <>
+    <div>
       {/* Hero */}
       <section
         style={{
-          background: "linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #4c1d95 100%)",
+          backgroundImage: "linear-gradient(rgba(131, 72, 173, 0.7), rgba(100, 55, 133, 0.7)), url(/school.png)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
           color: "#fff",
           padding: "4rem 1.5rem",
           textAlign: "center",
+          borderTop: "6px solid #510C76",
+          borderBottom: "6px solid #510C76",
+          boxSizing: "border-box",
         }}
       >
         <h1 style={{ fontSize: "2.25rem", fontWeight: 800, marginBottom: "0.75rem" }}>
-          Welcome to Tommie Shelf
+          Welcome to <span style={{ color: "#94d500" }}>Tommie</span>{" "}
+          <span style={{ color: "#94d500" }}>Shelf</span>
         </h1>
         <p
           style={{
             fontSize: "1.125rem",
             maxWidth: "36rem",
             margin: "0 auto 2rem",
-            opacity: 0.9,
+            color: "#fff",
+            fontWeight: 700,
           }}
         >
           Events and resources for our community. Find upcoming events, volunteer, and make an impact.
         </p>
         <Link
           href="/events"
+          className="browse-events-cta"
           style={{
             display: "inline-block",
             padding: "0.75rem 2rem",
             background: "#fff",
-            color: "#7c3aed",
+            color: "#510C76",
             borderRadius: "9999px",
             fontWeight: 700,
             fontSize: "1rem",
-            boxShadow: "0 4px 14px rgba(0,0,0,0.15)",
           }}
         >
           Browse all events
@@ -165,7 +172,7 @@ export default function ClientLandingPage() {
         >
           Upcoming Events
         </h2>
-        <p style={{ color: "#64748b", marginBottom: "1.5rem", fontSize: "0.95rem" }}>
+        <p style={{ color: "#64748b", marginBottom: "1.5rem", fontSize: "0.95rem", fontWeight: 600 }}>
           See what&apos;s happening soon in the community.
         </p>
 
@@ -191,6 +198,7 @@ export default function ClientLandingPage() {
               <button
                 key={event.id}
                 type="button"
+                className="upcoming-event-card"
                 onClick={() => setSelectedEvent(event)}
                 style={{
                   background: "#fff",
@@ -200,8 +208,6 @@ export default function ClientLandingPage() {
                   display: "flex",
                   flexDirection: "column",
                   gap: "0.5rem",
-                  transition: "box-shadow 0.2s",
-                  boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
                   cursor: "pointer",
                   textAlign: "left",
                 }}
@@ -210,7 +216,7 @@ export default function ClientLandingPage() {
                   style={{
                     fontSize: "0.75rem",
                     fontWeight: 600,
-                    color: "#7c3aed",
+                    color: "#510C76",
                     textTransform: "uppercase",
                     letterSpacing: "0.05em",
                   }}
@@ -218,13 +224,13 @@ export default function ClientLandingPage() {
                   {formatDate(event.date)}
                 </span>
                 <h3 style={{ fontSize: "1.125rem", fontWeight: 700 }}>{event.title}</h3>
-                <p style={{ fontSize: "0.85rem", color: "#64748b" }}>
+                <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "#64748b", fontWeight: 600 }}>
                   {event.location}
                 </p>
                 {event.description && (
                   <p
                     style={{
-                      fontSize: "0.85rem",
+                      fontSize: "0.85rem", fontWeight: 600,
                       color: "#475569",
                       lineHeight: 1.5,
                       marginTop: "0.25rem",
@@ -243,7 +249,7 @@ export default function ClientLandingPage() {
             <Link
               href="/events"
               style={{
-                color: "#7c3aed",
+                color: "#510C76",
                 fontWeight: 600,
                 fontSize: "0.95rem",
               }}
@@ -266,7 +272,7 @@ export default function ClientLandingPage() {
         <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "0.25rem" }}>
           External Resources
         </h2>
-        <p style={{ color: "#64748b", marginBottom: "0.5rem", fontSize: "0.95rem" }}>
+        <p style={{ color: "#64748b", marginBottom: "1.5rem", fontSize: "0.95rem", fontWeight: 600 }}>
           Helpful links for food assistance, housing, and community services.
         </p>
         <p style={{ marginBottom: "1.5rem" }}>
@@ -297,6 +303,7 @@ export default function ClientLandingPage() {
               href={resource.url}
               target="_blank"
               rel="noopener noreferrer"
+              className="external-resource-card"
               style={{
                 display: "block",
                 background: "#fff",
@@ -305,19 +312,17 @@ export default function ClientLandingPage() {
                 padding: "1.25rem",
                 textDecoration: "none",
                 color: "inherit",
-                transition: "box-shadow 0.2s, border-color 0.2s",
-                boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
               }}
             >
-              <h3 style={{ fontSize: "1.125rem", fontWeight: 700, color: "#7c3aed", marginBottom: "0.5rem" }}>
+              <h3 style={{ fontSize: "1.125rem", fontWeight: 700, color: "#510C76", marginBottom: "0.5rem" }}>
                 {resource.title}
               </h3>
               {resource.description && (
-                <p style={{ fontSize: "0.85rem", color: "#475569", lineHeight: 1.5 }}>
+                <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "#475569", lineHeight: 1.5, fontWeight: 600 }}>
                   {resource.description}
                 </p>
               )}
-              <span style={{ fontSize: "0.8rem", color: "#7c3aed", fontWeight: 500, marginTop: "0.5rem", display: "inline-block" }}>
+              <span style={{ fontSize: "0.8rem", color: "#510C76", fontWeight: 600, marginTop: "0.5rem", display: "inline-block" }}>
                 Visit link &rarr;
               </span>
             </a>
@@ -365,7 +370,7 @@ export default function ClientLandingPage() {
         </button>
         {actionItemsOpen && (
           <>
-            <p style={{ color: "#64748b", marginTop: "0.25rem", marginBottom: "1.5rem", fontSize: "0.95rem" }}>
+            <p style={{ color: "#64748b", marginTop: "0.25rem", marginBottom: "1.5rem", fontSize: "0.95rem", fontWeight: 600 }}>
               Things you might want to check out.
             </p>
             <ul
@@ -411,12 +416,12 @@ export default function ClientLandingPage() {
                       {item.title}
                     </h3>
                     {item.description && (
-                      <p style={{ fontSize: "0.85rem", color: "#64748b", marginTop: "0.25rem", lineHeight: 1.4 }}>
+                      <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "#64748b", marginTop: "0.25rem", lineHeight: 1.4, fontWeight: 600 }}>
                         {item.description}
                       </p>
                     )}
                     {item.dueDate && !item.completed && (
-                      <p style={{ fontSize: "0.8rem", color: "#7c3aed", marginTop: "0.35rem", fontWeight: 500 }}>
+                      <p style={{ fontSize: "0.8rem", color: "#510C76", marginTop: "0.35rem", fontWeight: 600 }}>
                         Due {formatDate(item.dueDate)}
                       </p>
                     )}
@@ -431,6 +436,6 @@ export default function ClientLandingPage() {
       {selectedEvent && (
         <EventDetailModal event={selectedEvent} onClose={() => setSelectedEvent(null)} />
       )}
-    </>
+    </div>
   );
 }
