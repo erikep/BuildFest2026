@@ -162,6 +162,15 @@ export default function ClientEventsPage() {
           ))}
         </div>
       )}
+
+      {!loading && events.length > 0 && (
+        <p style={{ marginTop: "2rem", fontSize: "0.9rem", color: "#64748b" }}>
+          Attended an event?{" "}
+          <Link href="/feedback" style={{ color: "#7c3aed", fontWeight: 600 }}>
+            Leave feedback
+          </Link>
+        </p>
+      )}
     </div>
   );
 }
