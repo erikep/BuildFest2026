@@ -2,13 +2,23 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import type { CreateEventInput, Event } from "@/types/events";
 
-function toEventResponse(row: { id: number; title: string; date: string; location: string; description: string }): Event {
+function toEventResponse(row: {
+  id: number;
+  title: string;
+  date: string;
+  location: string;
+  description: string;
+  foodDistributedAmount?: string | null;
+  foodWastePrevented?: string | null;
+}): Event {
   return {
     id: row.id,
     title: row.title,
     date: row.date,
     location: row.location,
     description: row.description,
+    foodDistributedAmount: row.foodDistributedAmount ?? null,
+    foodWastePrevented: row.foodWastePrevented ?? null,
   };
 }
 

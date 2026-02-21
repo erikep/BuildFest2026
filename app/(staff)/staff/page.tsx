@@ -321,6 +321,15 @@ export default function StaffDashboardPage() {
                 Create a new event for the client landing page.
               </p>
             </Link>
+            <Link href="/staff/impact" style={cardStyle}>
+              <div style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>📊</div>
+              <h3 style={{ fontSize: "1.125rem", fontWeight: 700, marginBottom: "0.375rem" }}>
+                Impact
+              </h3>
+              <p style={{ fontSize: "0.875rem", color: "#64748b", lineHeight: 1.5 }}>
+                View total events, check-ins, food distributed, and waste prevented.
+              </p>
+            </Link>
           </div>
         </>
       )}

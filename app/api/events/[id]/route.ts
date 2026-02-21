@@ -2,13 +2,23 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import type { CreateEventInput, Event } from "@/types/events";
 
-function toEventResponse(row: { id: number; title: string; date: string; location: string; description: string }): Event {
+function toEventResponse(row: {
+  id: number;
+  title: string;
+  date: string;
+  location: string;
+  description: string;
+  foodDistributedAmount?: string | null;
+  foodWastePrevented?: string | null;
+}): Event {
   return {
     id: row.id,
     title: row.title,
     date: row.date,
     location: row.location,
     description: row.description,
+    foodDistributedAmount: row.foodDistributedAmount ?? null,
+    foodWastePrevented: row.foodWastePrevented ?? null,
   };
 }
 
@@ -49,7 +59,7 @@ export async function PUT(
   }
   try {
     const body = (await request.json()) as CreateEventInput;
-    const { title, date, location, description } = body;
+    const { title, date, location, description, foodDistributedAmount, foodWastePrevented } = body;
 
     if (!title || !date || !location) {
       return NextResponse.json(
@@ -65,6 +75,8 @@ export async function PUT(
         date: String(date),
         location: String(location),
         description: description == null ? "" : String(description),
+        foodDistributedAmount: foodDistributedAmount != null ? String(foodDistributedAmount).trim() || null : null,
+        foodWastePrevented: foodWastePrevented != null ? String(foodWastePrevented).trim() || null : null,
       },
     });
     return NextResponse.json(toEventResponse(event));
