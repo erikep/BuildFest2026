@@ -186,7 +186,7 @@ export default function ClientLandingPage() {
               boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
             }}
           >
-            <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.75rem", color: "#7c3aed" }}>
+            <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.75rem", color: "#510C76" }}>
               Hours of operation
             </h3>
             <p style={{ fontSize: "0.875rem", fontWeight: 700, color: "#334155", marginBottom: "0.25rem" }}>
@@ -211,7 +211,7 @@ export default function ClientLandingPage() {
               boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
             }}
           >
-            <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.75rem", color: "#7c3aed" }}>
+            <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.75rem", color: "#510C76" }}>
               Contact Tommie Shelf
             </h3>
             <p style={{ fontSize: "0.875rem", color: "#475569", lineHeight: 1.5, marginBottom: "0.5rem" }}>
@@ -222,7 +222,7 @@ export default function ClientLandingPage() {
               style={{
                 fontSize: "0.9375rem",
                 fontWeight: 600,
-                color: "#7c3aed",
+                color: "#510C76",
               }}
             >
               tommieshelf@stthomas.edu
@@ -237,7 +237,7 @@ export default function ClientLandingPage() {
               boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
             }}
           >
-            <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.75rem", color: "#7c3aed" }}>
+            <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.75rem", color: "#510C76" }}>
               Donate
             </h3>
             <p style={{ fontSize: "0.875rem", fontWeight: 700, color: "#334155", marginBottom: "0.25rem" }}>
@@ -259,7 +259,7 @@ export default function ClientLandingPage() {
               style={{
                 display: "inline-block",
                 padding: "0.5rem 1rem",
-                background: "#7c3aed",
+                background: "#510C76",
                 color: "#fff",
                 borderRadius: "8px",
                 fontSize: "0.875rem",
