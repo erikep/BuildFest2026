@@ -53,6 +53,12 @@ export default function ClientLayout({
           >
             Volunteer
           </Link>
+          <Link
+            href="/feedback"
+            style={{ color: "#475569", fontWeight: 500 }}
+          >
+            Feedback
+          </Link>
         </nav>
       </header>
       <main style={{ flex: 1 }}>{children}</main>

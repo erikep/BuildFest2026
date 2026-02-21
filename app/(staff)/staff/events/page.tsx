@@ -4,14 +4,36 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { Event } from "@/types/events";
 
+type FeedbackItem = { id: number; rating: number | null; comment: string | null; createdAt: string };
+
 export default function EventsListPage() {
   const [events, setEvents] = useState<Event[]>([]);
+  const [feedbackByEventId, setFeedbackByEventId] = useState<Record<number, FeedbackItem[]>>({});
   const [loading, setLoading] = useState(true);
   const [deleting, setDeleting] = useState<number | null>(null);
 
   useEffect(() => {
     fetchEvents();
   }, []);
+
+  useEffect(() => {
+    if (events.length === 0) return;
+    const controller = new AbortController();
+    Promise.all(
+      events.map((e) =>
+        fetch(`/api/events/${e.id}/feedback`, { signal: controller.signal })
+          .then((res) => (res.ok ? res.json() : []))
+          .catch(() => [] as FeedbackItem[])
+      )
+    ).then((results) => {
+      const map: Record<number, FeedbackItem[]> = {};
+      events.forEach((e, i) => {
+        map[e.id] = results[i] ?? [];
+      });
+      setFeedbackByEventId(map);
+    });
+    return () => controller.abort();
+  }, [events]);
 
   async function fetchEvents() {
     try {
@@ -25,6 +47,11 @@ export default function EventsListPage() {
     } finally {
       setLoading(false);
     }
+  }
+
+  function formatFeedbackDate(iso: string): string {
+    const d = new Date(iso);
+    return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
   }
 
   async function handleDelete(id: number) {
@@ -139,6 +166,35 @@ export default function EventsListPage() {
                       {event.description}
                     </p>
                   )}
+                  {(feedbackByEventId[event.id]?.length ?? 0) > 0 && (
+                    <div style={{ marginTop: "0.75rem", paddingTop: "0.75rem", borderTop: "1px solid #e2e8f0" }}>
+                      <span style={{ fontSize: "0.75rem", fontWeight: 600, color: "#b45309" }}>Recent feedback</span>
+                      <ul style={{ margin: "0.25rem 0 0", paddingLeft: "1.25rem", fontSize: "0.8125rem", color: "#475569" }}>
+                        {(feedbackByEventId[event.id] ?? []).slice(0, 2).map((f) => (
+                          <li key={f.id} style={{ marginBottom: "0.25rem" }}>
+                            {f.rating != null && <span style={{ color: "#b45309" }}>★ {f.rating}</span>}
+                            {f.comment && (
+                              <span>
+                                {f.rating != null && " — "}
+                                {f.comment.length > 60 ? f.comment.slice(0, 60) + "…" : f.comment}
+                              </span>
+                            )}
+                            <span style={{ color: "#94a3b8", marginLeft: "0.25rem" }}>
+                              ({formatFeedbackDate(f.createdAt)})
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                      {(feedbackByEventId[event.id]?.length ?? 0) > 2 && (
+                        <Link
+                          href={`/staff/events/${event.id}/feedback`}
+                          style={{ fontSize: "0.75rem", color: "#b45309", fontWeight: 500, marginTop: "0.25rem", display: "inline-block" }}
+                        >
+                          View all {feedbackByEventId[event.id].length} →
+                        </Link>
+                      )}
+                    </div>
+                  )}
                 </div>
                 <div style={{ display: "flex", gap: "0.5rem", flexShrink: 0 }}>
                   <Link
@@ -173,6 +229,17 @@ export default function EventsListPage() {
                     }}
                   >
                     Inventory
+                  </Link>
+                  <Link
+                    href={`/staff/events/${event.id}/feedback`}
+                    style={{
+                      ...buttonStyle,
+                      background: "#fef3c7",
+                      color: "#b45309",
+                      textDecoration: "none",
+                    }}
+                  >
+                    Feedback ({feedbackByEventId[event.id]?.length ?? 0})
                   </Link>
                   <button
                     onClick={() => handleDelete(event.id)}
