@@ -18,9 +18,10 @@ If this finishes without errors, TypeScript and Next.js are fine.
    ```bash
    npm run dev
    ```
-2. Open **http://localhost:3000** — you should see the staff home.
-3. Click **Create event** (goes to `/events/new`), fill in title, date, location (and optional description), and submit.
+2. Open **http://localhost:3000** — you should see the client landing page.
+3. Go to **http://localhost:3000/staff**, then click **Create event** (goes to `/staff/events/new`). Fill in title, date, location (and optional description), and submit.
 4. You should see **"Event created successfully"** (the mock API returns 201).
+5. Open **http://localhost:3000/events** to see the event list (uses GET /api/events).
 
 ---
 

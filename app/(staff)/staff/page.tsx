@@ -7,7 +7,7 @@ export default function StaffHomePage() {
         Create and manage events. New events will appear on the client landing page.
       </p>
       <Link
-        href="/events/new"
+        href="/staff/events/new"
         style={{
           display: "inline-block",
           padding: "0.75rem 1.25rem",

@@ -1,9 +1,17 @@
 import { NextResponse } from "next/server";
-import type { CreateEventInput } from "@/types/events";
+import type { CreateEventInput, Event } from "@/types/events";
 
 /**
- * Mock POST /api/events for Staff frontend (Person C).
- * Replace with real DB-backed implementation when Person B's API is ready.
+ * GET /api/events — list events (Client frontend). Replace with DB when ready.
+ */
+export async function GET() {
+  // Mock: empty list. Person B will connect to Prisma and return real events.
+  const events: Event[] = [];
+  return NextResponse.json(events);
+}
+
+/**
+ * POST /api/events — create event (Staff frontend). Replace with DB when ready.
  */
 export async function POST(request: Request) {
   try {

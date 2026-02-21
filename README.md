@@ -1,3 +1,15 @@
+# Tommie Shelf
+
+## Project structure (4-person team)
+
+- **Client (public):** `/` landing, `/events` — [app/(client)/](app/(client)/) · Person D
+- **Staff:** `/staff`, `/staff/events/new` — [app/(staff)/](app/(staff)/) · Person C
+- **API:** [app/api/](app/api/) · Person B | **DB & types:** [prisma/](prisma/), [types/](types/) · Person A
+
+See [docs/TEAM.md](docs/TEAM.md) for ownership, branches, and URL map.
+
+---
+
 # MVP Scope
 
 Account type- Nonprofit Manager, Volunteer/Contributor, Assistee???

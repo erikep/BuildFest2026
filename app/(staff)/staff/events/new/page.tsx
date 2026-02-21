@@ -48,7 +48,7 @@ export default function NewEventPage() {
   return (
     <div>
       <Link
-        href="/"
+        href="/staff"
         style={{
           display: "inline-block",
           marginBottom: "1.5rem",
