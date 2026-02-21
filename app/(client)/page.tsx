@@ -87,16 +87,22 @@ function formatDate(dateStr: string): string {
 
 export default function ClientLandingPage() {
   const [events, setEvents] = useState<Event[]>([]);
+  const [resources, setResources] = useState<Resource[]>(mockResources);
+  const [actionItems, setActionItems] = useState<ActionItem[]>(mockActionItems);
   const [loading, setLoading] = useState(true);
   const [actionItemsOpen, setActionItemsOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
 
   useEffect(() => {
-    fetch("/api/events")
-      .then((res) => (res.ok ? res.json() : Promise.reject(new Error("API error"))))
-      .then((data: Event[]) => setEvents(data.length > 0 ? data : mockEvents))
-      .catch(() => setEvents(mockEvents))
-      .finally(() => setLoading(false));
+    Promise.all([
+      fetch("/api/events").then((res) => (res.ok ? res.json() : [])).catch(() => []),
+      fetch("/api/resources").then((res) => (res.ok ? res.json() : [])).catch(() => []),
+      fetch("/api/action-items").then((res) => (res.ok ? res.json() : [])).catch(() => []),
+    ]).then(([eventsData, resourcesData, actionItemsData]) => {
+      setEvents(Array.isArray(eventsData) && eventsData.length > 0 ? eventsData : mockEvents);
+      setResources(Array.isArray(resourcesData) && resourcesData.length > 0 ? resourcesData : mockResources);
+      setActionItems(Array.isArray(actionItemsData) && actionItemsData.length > 0 ? actionItemsData : mockActionItems);
+    }).finally(() => setLoading(false));
   }, []);
 
   const upcoming = events.slice(0, 3);
@@ -270,7 +276,7 @@ export default function ClientLandingPage() {
             gap: "1.25rem",
           }}
         >
-          {mockResources.map((resource) => (
+          {resources.map((resource) => (
             <a
               key={resource.id}
               href={resource.url}
@@ -351,7 +357,7 @@ export default function ClientLandingPage() {
               id="action-items-list"
               style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}
             >
-              {mockActionItems.map((item) => (
+              {actionItems.map((item) => (
                 <li
                   key={item.id}
                   style={{
