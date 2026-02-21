@@ -46,7 +46,8 @@ export async function sendEventNotificationEmail(
 }
 
 /**
- * Send SMS via Twilio. Requires TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER in .env.
+ * Send SMS via Twilio. Requires TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, and either
+ * TWILIO_PHONE_NUMBER or TWILIO_MESSAGING_SERVICE_SID in .env.
  * Twilio trial: $15 credit. Sign up at https://twilio.com
  */
 export async function sendEventNotificationSms(
@@ -56,11 +57,19 @@ export async function sendEventNotificationSms(
   const sid = process.env.TWILIO_ACCOUNT_SID;
   const token = process.env.TWILIO_AUTH_TOKEN;
   const from = process.env.TWILIO_PHONE_NUMBER;
+  const messagingServiceSid = process.env.TWILIO_MESSAGING_SERVICE_SID;
 
-  if (!sid || !token || !from) {
+  if (!sid || !token) {
     return {
       ok: false,
-      error: "Twilio not configured. Add TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER to .env",
+      error: "Twilio not configured. Add TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN to .env",
+    };
+  }
+
+  if (!from && !messagingServiceSid) {
+    return {
+      ok: false,
+      error: "Add TWILIO_PHONE_NUMBER or TWILIO_MESSAGING_SERVICE_SID to .env",
     };
   }
 
@@ -72,17 +81,34 @@ export async function sendEventNotificationSms(
     );
 
     const body = `Tommie Shelf: You're signed up for "${event.title}" on ${formattedDate} at ${event.location}. We'll remind you before the event!`;
-    const normalizedPhone = to.replace(/\D/g, "");
+    const normalizedPhone = to.trim().replace(/\D/g, "");
     const toE164 = normalizedPhone.length === 10 ? `+1${normalizedPhone}` : `+${normalizedPhone}`;
 
-    await client.messages.create({
+    const params: { body: string; to: string; from?: string; messagingServiceSid?: string } = {
       body,
-      from,
       to: toE164,
-    });
+    };
+    if (messagingServiceSid) {
+      params.messagingServiceSid = messagingServiceSid;
+    } else if (from) {
+      params.from = from;
+    }
+
+    await client.messages.create(params);
     return { ok: true };
   } catch (err: unknown) {
-    const twilioErr = err as { message?: string };
-    return { ok: false, error: twilioErr.message ?? String(err) };
+    const twilioErr = err as { message?: string; code?: number };
+    const msg = twilioErr.message ?? String(err);
+    if (
+      msg.toLowerCase().includes("unverified") ||
+      msg.toLowerCase().includes("authenticate") ||
+      msg.toLowerCase().includes("verified")
+    ) {
+      return {
+        ok: false,
+        error: "This number must be verified in your Twilio trial. Add it at console.twilio.com → Phone Numbers → Verified Caller IDs.",
+      };
+    }
+    return { ok: false, error: msg };
   }
 }
