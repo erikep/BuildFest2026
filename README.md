@@ -18,7 +18,7 @@ Account type- Nonprofit Manager, Volunteer/Contributor, Assistee???
 
 ```
 [x] Landing page that has event calendar, external resource list, and action needed list
-[ ] Notification preference and set up (phone number, school email, and push notification options)
+[x] Notification preference and set up (phone number, school email, and push notification options)
 [ ] Informational and alert notification testing
 [ ] Ability to turn on "volunteer status" and interest form
 ```

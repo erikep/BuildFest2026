@@ -41,6 +41,12 @@ export default function ClientLayout({
           >
             Events
           </Link>
+          <Link
+            href="/notifications"
+            style={{ color: "#475569", fontWeight: 500 }}
+          >
+            Notifications
+          </Link>
         </nav>
       </header>
       <main style={{ flex: 1 }}>{children}</main>
