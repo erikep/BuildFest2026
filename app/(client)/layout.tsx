@@ -47,6 +47,12 @@ export default function ClientLayout({
           >
             Notifications
           </Link>
+          <Link
+            href="/volunteer"
+            style={{ color: "#475569", fontWeight: 500 }}
+          >
+            Volunteer
+          </Link>
         </nav>
       </header>
       <main style={{ flex: 1 }}>{children}</main>
