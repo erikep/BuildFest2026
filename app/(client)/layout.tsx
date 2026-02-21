@@ -10,7 +10,9 @@ export default function ClientLayout({
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", overflowX: "hidden" }}>
       <header
         style={{
-          background: "#fff",
+          backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), url(/tomcat-background.png)",
+          backgroundRepeat: "repeat",
+          backgroundSize: "220px",
           borderBottom: "1px solid #e2e8f0",
           padding: "0.75rem 1.5rem",
           display: "flex",
