@@ -92,6 +92,7 @@ export default function ClientLandingPage() {
   const [loading, setLoading] = useState(true);
   const [actionItemsOpen, setActionItemsOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [donateHover, setDonateHover] = useState(false);
 
   useEffect(() => {
     Promise.all([
@@ -256,6 +257,8 @@ export default function ClientLandingPage() {
               href="https://donorbox.org/tommieshelfdonation"
               target="_blank"
               rel="noopener noreferrer"
+              onMouseEnter={() => setDonateHover(true)}
+              onMouseLeave={() => setDonateHover(false)}
               style={{
                 display: "inline-block",
                 padding: "0.5rem 1rem",
@@ -265,6 +268,7 @@ export default function ClientLandingPage() {
                 fontSize: "0.875rem",
                 fontWeight: 600,
                 textDecoration: "none",
+                boxShadow: donateHover ? "0 0 12px rgba(148, 213, 0, 0.6), 0 0 24px rgba(148, 213, 0, 0.35)" : "none",
               }}
             >
               Make a monetary donation
