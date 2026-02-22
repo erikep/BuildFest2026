@@ -73,6 +73,13 @@ export default function ClientLayout({
           >
             Feedback
           </Link>
+          <Link
+            href="/staff"
+            className="header-nav-link"
+            style={{ color: "#510C76", fontWeight: 700 }}
+          >
+            Staff
+          </Link>
         </nav>
       </header>
       <main style={{ flex: 1 }}>{children}</main>

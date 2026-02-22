@@ -16,7 +16,7 @@ export default function StaffLayout({
           borderBottom: "3px solid #3d0959",
         }}
       >
-        <div style={{ maxWidth: "56rem", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <Link href="/staff" style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "1.25rem", fontWeight: 700, color: "#f8fafc" }} aria-label="Tommie Shelf Staff home">
             <Image
               src="/logo.png"
@@ -43,6 +43,9 @@ export default function StaffLayout({
             </Link>
             <Link href="/staff/locations" className="header-nav-link" style={{ color: "#fff", fontWeight: 700 }}>
               Locations
+            </Link>
+            <Link href="/" className="header-nav-link" style={{ color: "#fff", fontWeight: 700 }}>
+              Community
             </Link>
           </nav>
         </div>
